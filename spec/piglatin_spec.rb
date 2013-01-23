@@ -33,6 +33,10 @@ describe PigLatin do
     it 'translate "way" correctly' do
       subject.class.translate("way").should == "ay-way"
     end
+
+    it 'translate "tsk" correctly' do
+      subject.class.translate("tsk").should == "-tskay"
+    end
   end
 
   describe '#revert' do
@@ -46,6 +50,10 @@ describe PigLatin do
 
     it 'reverts "ate-skay" correctly' do
       subject.class.revert("ate-skay").should == "skate"
+    end
+
+    it 'reverts "-tskay" correctly' do
+      subject.class.revert("-tskay").should == "tsk"
     end
 
     describe 'cannot resolve originals' do

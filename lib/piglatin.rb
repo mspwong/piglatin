@@ -16,6 +16,7 @@ class PigLatin
 
   def self.piglatinize(word)
     vowel_index = word.index(/[aeiou]/)
+    vowel_index = word.length if vowel_index.nil?
     ending = vowel_index == 0  ?  "way"  : "ay"
     word[vowel_index, word.length-vowel_index] << "-" << word[0, vowel_index] << ending
   end

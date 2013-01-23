@@ -10,6 +10,10 @@ describe PigLatin do
       subject.class.translate("Hello world").should == "ello-Hay orld-way"
     end
 
+    it 'translates "Hello World" correctly' do
+      subject.class.translate("Hello World").should == "ello-Hay orld-Way"
+    end
+
     it 'translates "skate" correctly' do
       subject.class.translate("skate").should == "ate-skay"
     end
@@ -26,6 +30,10 @@ describe PigLatin do
 
     it 'reverts "ello-Hay orld-way" results in getting exception' do
       lambda { subject.class.revert("ello-Hay orld-way") }.should raise_error
+    end
+
+    it 'reverts "ello-Hay orld-Way" correctly' do
+      subject.class.revert("ello-Hay orld-Way").should == "Hello World"
     end
 
     it 'reverts "ate-skay" correctly' do

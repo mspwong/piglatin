@@ -1,6 +1,13 @@
 class PigLatin
 
   def self.translate(english)
-    english[1, english.length-1] << "-" << english[0] << "ay"
+    words = english.split(' ')
+    words.map { |w| piglatinize(w) }.join(' ')
+  end
+
+  private
+
+  def self.piglatinize(word)
+    word[1, word.length-1] << "-" << word[0] << "ay"
   end
 end

@@ -8,6 +8,7 @@ class PigLatin
   private
 
   def self.piglatinize(word)
-    word[1, word.length-1] << "-" << word[0] << "ay"
+    vowel_index = word.index(/[aeiou]/)
+    word[vowel_index, word.length-vowel_index] << "-" << word[0, vowel_index] << "ay"
   end
 end

@@ -1,19 +1,27 @@
 require "piglatin"
 
 describe PigLatin do
-  it 'translates "Hello" correctly' do
-    subject.class.translate("Hello").should == "ello-Hay"
+  describe '#translate' do
+    it 'translates "Hello" correctly' do
+      subject.class.translate("Hello").should == "ello-Hay"
+    end
+
+    it 'translates "Hello world" correctly' do
+      subject.class.translate("Hello world").should == "ello-Hay orld-way"
+    end
+
+    it 'translates "skate" correctly' do
+      subject.class.translate("skate").should == "ate-skay"
+    end
+
+    it 'translate "awesome" correctly' do
+      subject.class.translate("awesome").should == "awesome-way"
+    end
   end
 
-  it 'translates "Hello world" correctly' do
-    subject.class.translate("Hello world").should == "ello-Hay orld-way"
-  end
-
-  it 'translates "skate" correctly' do
-    subject.class.translate("skate").should == "ate-skay"
-  end
-
-  it 'translate "awesome" correctly' do
-    subject.class.translate("awesome").should == "awesome-way"
+  describe '#revert' do
+    it 'reverts "ello-Hay" correctly' do
+      subject.class.revert("ello-Hay").should == "Hello"
+    end
   end
 end

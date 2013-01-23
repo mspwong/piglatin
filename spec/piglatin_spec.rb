@@ -12,4 +12,8 @@ describe PigLatin do
   it 'translates "skate" correctly' do
     subject.class.translate("skate").should == "ate-skay"
   end
+
+  it 'translate "awesome" correctly' do
+    subject.class.translate("awesome").should == "awesome-way"
+  end
 end

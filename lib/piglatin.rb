@@ -20,7 +20,8 @@ class PigLatin
 
   def self.englishize(word)
     de_tailed = word.chomp('ay')
-    de_tailed[de_tailed.length-1] << de_tailed[0, de_tailed.length-2]
+    consonant_index = de_tailed.index('-')
+    de_tailed[consonant_index+1, de_tailed.length-1] << de_tailed[0, consonant_index]
   end
 
 end

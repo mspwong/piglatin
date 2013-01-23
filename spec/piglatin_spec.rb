@@ -27,5 +27,9 @@ describe PigLatin do
     it 'reverts "ello-Hay orld-way" correctly' do
       subject.class.revert("ello-Hay orld-way").should == "Hello world"
     end
+
+    it 'reverts "ate-skay" correctly' do
+      subject.class.revert("ate-skay").should == "skate"
+    end
   end
 end

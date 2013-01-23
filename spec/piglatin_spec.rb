@@ -25,15 +25,19 @@ describe PigLatin do
     it 'translate "awesome" correctly' do
       subject.class.translate("awesome").should == "awesome-way"
     end
+
+    it 'translate "ay" correctly' do
+      subject.class.translate("ay").should == "ay-way"
+    end
+
+    it 'translate "way" correctly' do
+      subject.class.translate("way").should == "ay-way"
+    end
   end
 
   describe '#revert' do
     it 'reverts "ello-Hay" correctly' do
       subject.class.revert("ello-Hay").should == "Hello"
-    end
-
-    it 'reverts "ello-Hay orld-way" results in getting exception' do
-      lambda { subject.class.revert("ello-Hay orld-way") }.should raise_error
     end
 
     it 'reverts "ello-Hay orld-Way" correctly' do
@@ -44,8 +48,18 @@ describe PigLatin do
       subject.class.revert("ate-skay").should == "skate"
     end
 
-    it 'reverts "awesome-way" results in getting exception' do
-      lambda { subject.class.revert("awesome-way") }.should raise_error
+    describe 'cannot resolve originals' do
+      it 'reverts "ello-Hay orld-way" results in getting exception' do
+        lambda { subject.class.revert("ello-Hay orld-way") }.should raise_error
+      end
+
+      it 'reverts "awesome-way" results in getting exception' do
+        lambda { subject.class.revert("awesome-way") }.should raise_error
+      end
+
+      it 'reverts "ay-way" results in getting exception' do
+        lambda { subject.class.revert("ay-way") }.should raise_error
+      end
     end
   end
 end

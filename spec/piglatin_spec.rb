@@ -24,12 +24,16 @@ describe PigLatin do
       subject.class.revert("ello-Hay").should == "Hello"
     end
 
-    it 'reverts "ello-Hay orld-way" correctly' do
-      subject.class.revert("ello-Hay orld-way").should == "Hello world"
+    it 'reverts "ello-Hay orld-way" results in getting exception' do
+      lambda { subject.class.revert("ello-Hay orld-way") }.should raise_error
     end
 
     it 'reverts "ate-skay" correctly' do
       subject.class.revert("ate-skay").should == "skate"
+    end
+
+    it 'reverts "awesome-way" results in getting exception' do
+      lambda { subject.class.revert("awesome-way") }.should raise_error
     end
   end
 end

@@ -10,6 +10,10 @@ describe PigLatin do
       subject.class.translate("Hello world").should == "ello-Hay orld-way"
     end
 
+    it 'translates "  Hello      world  " correctly' do
+      subject.class.translate("  Hello      world  ").should == "ello-Hay orld-way"
+    end
+
     it 'translates "Hello World" correctly' do
       subject.class.translate("Hello World").should == "ello-Hay orld-Way"
     end

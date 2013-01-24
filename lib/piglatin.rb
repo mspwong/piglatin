@@ -22,13 +22,11 @@ class PigLatin
   end
 
   def self.englishize(word)
-    de_tailed = word.chomp('ay')
-    consonant_index = de_tailed.index('-')
-    cannot_tell = de_tailed[consonant_index+1, de_tailed.length-1] == 'w'
-
+    tokens = word.split('-')
+    cannot_tell = tokens[1].start_with?('w')
     raise "Cannot not tell if one of the original words starts with a vowel or with a 'w'" if cannot_tell
 
-    de_tailed[consonant_index+1, de_tailed.length-1] << de_tailed[0, consonant_index]
+    tokens[1].chomp('ay') << tokens[0]
   end
 
 end

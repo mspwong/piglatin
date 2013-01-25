@@ -1,17 +1,17 @@
 class PigLatin
 
   def self.translate(english)
-    process english, method(:piglatinize)
+    convert english, method(:piglatinize)
   end
 
   def self.revert(piglatin)
-    process piglatin, method(:englishize)
+    convert piglatin, method(:englishize)
   end
 
   private
 
-  def self.process(phrase, processor)
-    phrase.split(' ').map { |word| processor.call(word) }.join(' ')
+  def self.convert(phrase, converter)
+    phrase.split(' ').map { |word| converter.call(word) }.join(' ')
   end
 
   def self.piglatinize(word)
@@ -23,7 +23,7 @@ class PigLatin
 
   def self.englishize(word)
     tokens = word.split('-')
-    
+
     cannot_tell = tokens[1].start_with?('w')
     raise "Cannot not tell if one of the original words starts with a vowel or with a 'w'" if cannot_tell
 

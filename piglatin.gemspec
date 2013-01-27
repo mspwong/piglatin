@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'piglatin'
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.date = '2013-01-22'
   s.summary = 'pig latin translator'
   s.description = 'a translator and reverse tranlator between english and pig latin'

@@ -1,7 +1,7 @@
 require "piglatin"
 
 describe PigLatin do
-  describe '#translate' do
+  describe '::translate' do
     it 'translates simple single word correctly' do
       subject.class.translate("Hello").should == "ello-Hay"
     end
@@ -39,7 +39,7 @@ describe PigLatin do
     end
   end
 
-  describe '#revert' do
+  describe '::revert' do
     it 'reverts simple word correctly' do
       subject.class.revert("ello-Hay").should == "Hello"
     end
